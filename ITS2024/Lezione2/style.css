@@ -1,0 +1,22 @@
+.button1 {
+      background-color: white;
+      color: black;
+      margin-left: 850px;
+      margin-top:50px;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+}
+
+#titolo {
+    color: red;
+    font-size: 50px;
+}
+
