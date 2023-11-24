@@ -3,8 +3,8 @@
 class Studente {
 
     constructor ( nome,  cognome){
-       this.nome = nome
-       this.cognome = cognome
+       this.nome = nome;
+       this.cognome = cognome;
    }
 
    firma(){

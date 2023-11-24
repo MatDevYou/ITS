@@ -6,35 +6,30 @@
     <title>Paesi</title>
 </head>
 <body>
-    
     <input type="text" name="" id="continente">
-    <button id = "btn">Cambia</button>
-
+    <button id="btn">cambia</button>
     <script>
         const INPUT = document.getElementById('continente')
         const BTN = document.getElementById('btn')
 
-        BTN.onclick = function (){
+        BTN.onclick = function () {
             let continente = INPUT.value
-            
-            const URL = 'https://restcountries.com/v3.1/region/europe' + continente
 
-         fetch(URL)
-        .then(res => res.json())
-         .then(res => {
-         for (const paese of res) {
-            console.log(paese)
-            const IMG = document.createElement('img')
-            IMG.src = paese.flags.png
-            IMG.alt = paese.name.official
-            IMG.style = 'width : 100px; height 70px ; center'
-            document.body.append(IMG)
+            const URL = 'https://restcountries.com/v3.1/region/' + continente
+
+            fetch(URL)
+                .then(res => res.json())
+                .then(res => {
+                    for (const paese of res) {
+                        console.log(paese);
+                        const IMG = document.createElement('img')
+                        IMG.src = paese.flags.png
+                        IMG.alt = paese.name.official
+                        IMG.style = 'width:100px;height:70'
+                        document.body.append(IMG)
+                    }
+                })
         }
-    })
-}
-       
-
     </script>
-    
 </body>
 </html>

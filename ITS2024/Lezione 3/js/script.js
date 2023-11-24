@@ -1,6 +1,6 @@
 console.log(STUDENT)
 
-STUDENT.filter( s => s.nome.length > 6).forEach( s => console.log(s)); //filtra e prende gli studenti che hanno la lunghezza del nome fino a 6
+//filtra e prende gli studenti che hanno la lunghezza del nome fino a 6   STUDENT.filter( s => s.nome.length > 6).forEach( s => console.log(s)); 
 
 //STUDENT.forEach( s -> FileSystem.out.println(s)) su java si scrive cosi
 
@@ -37,3 +37,6 @@ function creaStudente ( _nome, _cognome){
        //     return this.nome + ' ' + this.cognome;
      //   }
 //    }
+
+const st1 = creaStudente('pippo', 'rossi')
+console.log(st1.nome);
