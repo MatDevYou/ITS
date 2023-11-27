@@ -1,0 +1,75 @@
+GO
+
+Create table Categoria (
+Id INT Not Null Primary Key,
+Denominazione varchar(100)
+)
+
+create table Prodotto (
+Id INT not null primary key,
+Denominazione varchar(100) Not null,
+Descrizione Text NULL,
+Prezzo Float Not null,
+Giacenza Int Not null,
+IdCategoria int not null,
+Constraint FK_Prodotto_Categoria 
+Foreign Key(IdCategoria) references Categoria(Id)
+)
+
+create table Cliente (
+CodiceFiscale char(16) not null primary key,
+Nome VARCHAR(50) not null,
+Cognome VARCHAR (50) not null,
+Email VARCHAR(50) not null,
+Indirizzo VARCHAR(50) not null,
+Telefono varchar(50) not null,
+PartitaIva char(10)NULL
+)
+
+create table Pagamento (
+Id int not null primary key,
+Denominazione varchar(100) not null,
+Maggiorazione varchar(50) not null
+)
+
+create table Stato (
+Id int not null primary key,
+Denominazione varchar(100)not null
+)
+
+create table Ordine (
+Id INT not null primary key,
+IdCliente char(16) not null,
+IdStato int not null,
+IdPagamento int not null,
+Data date not null,
+Constraint FK_Ordine_Cliente
+Foreign Key(IdCliente) references Cliente(Codicefiscale),
+Constraint FK_Stato_Ordine
+Foreign Key(IdStato) references Stato(Id),
+Constraint FK_Ordine_Pagamento
+Foreign Key (IdPagamento) references Pagamento(Id)
+)
+
+
+create table IndirizzoSpedizione (
+Id int not null primary key,
+Via varchar(50) not null,
+Cap int not null,
+Comune varchar(50) not null,
+Provincia varchar(50) not null,
+IdCliente char(16) not null,
+Constraint FK_IndirizzoSpedizione_Cliente
+Foreign Key (IdCliente) references Cliente(CodiceFiscale)
+)
+
+create table DettaglioOrdine (
+IdOrdine int not null,
+IdProdotto int not null,
+Quantità int not null,
+primary key(IdOrdine, IdProdotto),
+Constraint FK_DettaglioOrdine_Ordine
+Foreign Key (IdOrdine) references Ordine(Id),
+Constraint FK_DettaglioOrdine_Prodotto
+Foreign Key(IdProdotto) references Prodotto(Id)
+)
