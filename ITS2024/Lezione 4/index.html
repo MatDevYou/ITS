@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btnCambia">Cambia titolo</button>
+    <h1 id = 'titolo'>titolo</h1>
+
+    <input type="text" placeholder="Scrivi un colore" id="color">
+
+    <ul>
+        <li class="blu">maglia blu</li>
+        <li>giacca grigia</li>
+        <li class="blu">pantalone blu</li>
+        <li>camicia bianca</li>
+    </ul>
+
+    <script>//se voglio individuare elemento id 
+
+        const COLORE = document.getElementById('color')
+        const TITLE = document.getElementById('titolo')
+        const BTN = document.getElementById('btnCambia')
+        const coloreBlue = document.getElementsByClassName('blu')
+
+        //quando cambia un elemento puoi fare qualcosa ma in sto case cambiamo lo sfondo della pagina
+
+        COLORE.onchange = function (){
+                            document.body.style.backgroundColor = COLORE.value
+                        }
+
+         //evento onclick che ha guidato la modifica della pagina
+ 
+        BTN.onclick =  function cambia(){
+                            TITLE.textContent = "Negozio abbigliamento"
+                            
+                            for (const vestito of coloreBlue){
+                                vestito.textContent = vestito.textContent + "(prodotto scontat 30%)"
+                            }
+                        }
+
+    
+
+        //console.log(coloreBlue)
+
+
+    </script>
+</body>
+</html>
