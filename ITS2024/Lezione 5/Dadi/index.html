@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dado</title>
+</head>
+<body>
+
+    <script src="dado.js"></script>
+
+    <div class = "container">
+        <img src="" id="d1">
+        <img src="" id="d2">
+        <button id="play">Play</button>
+    </div>
+
+    <script>
+        const D1 = document.getElementById('d1')
+        const D2 = document.getElementById('d2')
+        const play = document.getElementById('play')
+        const CONTAINER = document.querySelector('.container')
+        
+        const dado1 = new Dado(6, 'Bianco')
+        const dado2 = new Dado(6, 'Rosso')
+
+        play.onclick = function () {
+
+            let r1 = dado1.lancia()
+            let r2 = dado2.lancia()
+        
+        D1.src = 'https://github.com/maboglia/ITS_Fondamenti/tree/main/codice/04%20-%20Lancia%20Dadi/img/f$(r1).jpg'
+        D2.src = 'https://github.com/maboglia/ITS_Fondamenti/tree/main/codice/04%20-%20Lancia%20Dadi/img/f$(r2).jpg'
+
+        if(r1 == r2) {
+            console.log('hai vinto');
+            CONTAINER.innerHTML += '<h1>Hai vinto</h1>'
+        } else {
+            console.log('hai perso');
+            CONTAINER.innerHTML += '<h1>Hai perso</h1>'
+        }
+    }
+
+    </script>
+</body>
+</html>

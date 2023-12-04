@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carta sasso forbici</title>
+    <style>
+        img {width: 100px; height: 100px;border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <div>
+        <img src="/ITS-main/ITS2024/Lezione 5/images/pietra.jpg"  onclick="sceltaUtente(this)"  alt="pietra"> 
+        <img src="/ITS-main/ITS2024/Lezione 5/images/forbice.jpg"  onclick="sceltaUtente(this)"  alt="forbici">
+        <img src="/ITS-main/ITS2024/Lezione 5/images/carta.jpg"  onclick="sceltaUtente(this)"  alt="carta">
+    </div>
+
+    <div id = "PC"></div>
+    <div id="result"></div>
+
+    <script>
+
+    const RESULT = document.getElementById('result')
+    const PC = document.getElementById('PC')
+
+        function sceltaPC() {
+
+
+          let random =   Math.random();
+          if (random < 0.333) {
+            return 'pietra'
+
+          } else if (random < 0.666){
+
+          return 'forbici';
+          
+        } else {
+
+            return 'carta';
+        }
+
+        function sceltaUtente(btn) {
+
+            let sceltaU = btn.getAttribute('alt');
+
+            let sceltaP = sceltaPC();
+
+            valuta(sceltaU, sceltaPC);
+            PC.textContent = sceltaP
+            //RESULT.textContent = sceltaP
+        }
+
+        function valuta(sceltaUmano, sceltaMacchina){
+
+            if (sceltaUmano == sceltaMacchina){
+                RESULT.textContent = 'PAREGGIO';
+            } else {
+                RESULT.textContent = 'NON PAREGGIO';
+            }
+        }
+    }
+    </script>
+</body>
+</html>

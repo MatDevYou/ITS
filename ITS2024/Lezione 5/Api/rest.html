@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista">
+
+
+    </ul>
+
+    <script>
+
+    const miaLista = document.getElementById('lista')
+
+    const URL = 'http://bogliaccino.it/api/public/film.php?type=top250_imdb'
+
+    fetch(URL)
+        .then((response) => response.json() )
+        .then((response) => {
+            for (const film of response) {
+                const LI = document.createElement('li')
+                const LINK = document.createElement('a')
+                LINK.setAttribute('href', 'https://www.google.com/search?q=' + film.title)
+                LINK.textContent = film.title
+                LI.appendChild(LINK)
+                miaLista.appendChild(LI)
+            }
+        } )
+    
+        let studente = {
+            nome : 'mauro',
+            cognome : 'rossi',
+            firma : () =>{ this.nome + ' ' + this.cognome}
+        }
+
+        console.log(studente)
+        console.log( JSON.stringify(studente))
+
+    </script>
+</body>
+</html>
