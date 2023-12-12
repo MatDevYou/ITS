@@ -69,6 +69,16 @@ body {
     color: #205c20;
 }
 
+.card-item .lez4 {
+    background-color: #e1fde1; 
+    color: #806d22;
+}
+
+.card-item .lez5 {
+    background-color: #d6f8d6; 
+    color: #6c7d6c;
+}
+
 .card-item h3 {
     color: #000;
     font-size: 1.438rem;
