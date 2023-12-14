@@ -3,64 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>carta sasso forbici</title>
+    <title>Pietra Forbici Carta</title>
     <style>
-        img {width: 100px; height: 100px;border: 1px solid black;}
+        img {width: 100px;height: 100px;border: 1px solid black;}
     </style>
 </head>
 <body>
+
     <div>
-        <img src="../ITS2024/Lezione 5/images/pietra.jpg"  onclick="sceltaUtente(this)"  alt="pietra"> 
-        <img src="../ITS2024/Lezione 5/images/forbice.jpg"  onclick="sceltaUtente(this)"  alt="forbici">
-        <img src="../ITS2024/Lezione 5/images/carta.jpg"  onclick="sceltaUtente(this)"  alt="carta">
+        <img src="/ITS2024/Lezione 5/images/pietra.jpg" onclick="sceltaUtente(this)" alt="pietra">
+        <img src="/ITS2024/Lezione 5/images/forbice.jpg" onclick="sceltaUtente(this)" alt="forbici">
+        <img src="/ITS2024/Lezione 5/images/carta.jpg" onclick="sceltaUtente(this)" alt="carta">
     </div>
 
-    <div id = "PC"></div>
-    <div id="result"></div>
+    <div id="PC">
+
+    </div>
+
+    <div id="result">
+
+    </div>
 
     <script>
 
-    const RESULT = document.getElementById('result')
-    const PC = document.getElementById('PC')
+        const RESULT = document.getElementById('result')
+        const PC = document.getElementById('PC')
 
         function sceltaPC() {
+            
+           let random =  Math.random();//0 - 0.99999999
 
+            if (random < 0.333)
+                return 'pietra'
+            else if (random < 0.666)
+                return 'forbici'
+            else
+                return 'carta'
 
-          let random =   Math.random();
-          if (random < 0.333) {
-            return 'pietra'
-
-          } else if (random < 0.666){
-
-          return 'forbici';
-          
-        } else {
-
-            return 'carta';
         }
 
-        function sceltaUtente(btn) {
+        function sceltaUtente(btn){
+             let sceltaU = btn.getAttribute('alt');
 
-            let sceltaU = btn.getAttribute('alt');
+             let sceltaP = sceltaPC();
 
-            let sceltaP = sceltaPC();
-
-            valuta(sceltaU, sceltaPC);
+             valuta(sceltaU, sceltaP);
             PC.textContent = sceltaP
-            //RESULT.textContent = sceltaP
         }
 
-        function valuta(sceltaUmano, sceltaMacchina){
-
+        function valuta(sceltaUmano, sceltaMacchina) {
+            
             if (sceltaUmano == sceltaMacchina){
                 RESULT.textContent = 'PAREGGIO';
             } else {
                 RESULT.textContent = 'NON PAREGGIO';
+
             }
+
         }
-    }
+
     </script>
+
+
+
 </body>
 </html>

@@ -6,41 +6,47 @@
     <title>Dado</title>
 </head>
 <body>
-
-    <script src="dado.js"></script>
-
-    <div class = "container">
+    
+    <div class="container">
         <img src="" id="d1">
         <img src="" id="d2">
         <button id="play">Play</button>
     </div>
 
-    <script>
-        const D1 = document.getElementById('d1')
-        const D2 = document.getElementById('d2')
-        const play = document.getElementById('play')
-        const CONTAINER = document.querySelector('.container')
+
+<script src="dado.js"></script>
+<script>
+    const D1 = document.getElementById('d1')
+    const D2 = document.getElementById('d2')
+    const play = document.getElementById('play')
+    const CONTAINER = document.querySelector('.container')
+
+    const dado1 = new Dado(6, 'Bianco')
+    const dado2 = new Dado(6, 'Rosso')
+
+    play.onclick = function () {
         
-        const dado1 = new Dado(6, 'Bianco')
-        const dado2 = new Dado(6, 'Rosso')
+        let r1 = dado1.lancia()
+        let r2 = dado2.lancia()
+    
+        D1.setAttribute('src', `https://github.com/maboglia/ITS_Fondamenti/blob/main/codice/04%20-%20Lancia%20Dadi/img/f${r1}.jpg?raw=true`)
+        D2.setAttribute('src', `https://github.com/maboglia/ITS_Fondamenti/blob/main/codice/04%20-%20Lancia%20Dadi/img/f${r2}.jpg?raw=true`)
+    
+        const H1 = document.createElement('h1')
 
-        play.onclick = function () {
-
-            let r1 = dado1.lancia()
-            let r2 = dado2.lancia()
-        
-        D1.src = 'https://github.com/maboglia/ITS_Fondamenti/tree/main/codice/04%20-%20Lancia%20Dadi/img/f$(r1).jpg'
-        D2.src = 'https://github.com/maboglia/ITS_Fondamenti/tree/main/codice/04%20-%20Lancia%20Dadi/img/f$(r2).jpg'
-
-        if(r1 == r2) {
+        if (r1 == r2) {
             console.log('hai vinto');
-            CONTAINER.innerHTML += '<h1>Hai vinto</h1>'
+            H1.innerHTML = '<h1>Hai vinto</h1>'
+            CONTAINER.append(H1)
         } else {
+            H1.innerHTML = '<h1>Hai perso</h1>'
+            CONTAINER.append(H1)
             console.log('hai perso');
-            CONTAINER.innerHTML += '<h1>Hai perso</h1>'
         }
     }
 
-    </script>
+
+
+</script>
 </body>
 </html>

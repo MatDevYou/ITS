@@ -1,4 +1,4 @@
-class Dado  {
+class Dado {
 
     constructor(nFacce, nColore){
         this.facce = nFacce;
@@ -6,9 +6,7 @@ class Dado  {
     }
 
     lancia(){
-        return Math.ceil(Math.random() * this.facce);
+        return Math.ceil( Math.random() * this.facce );
     }
-
-
 
 }
