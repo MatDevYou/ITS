@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lezione 6</title>
+</head>
+<body>
+    <div id="playground">
+        <img src="images/59db69d33752880e93e16efc.png" alt="" id='car'>
+
+        <img src="images/cartello-stop.jpg" alt="" id='building'>
+    </div>
+
+    <script>
+        const car = document.getElementById('car')
+        const building = document.getElementById('building')
+        const audio = new Audio('crash.mp3')
+
+        let posizione = 0
+
+        function play(km) {
+            posizione += km
+            car.style.left = posizione + 'px'
+
+
+            // Se la posizione della macchina raggiunge o supera la posizione della building
+            if (posizione >= 490) {
+                clearInterval(intervallo)
+                car.setAttribute('src', 'images/cars-disney-wiki-fandom-powered-by-wikia-cars-3-mcqueen-crash-drawi-11563195009nz7ahqxmbn.png')
+            }
+        }
+
+        // Utilizzo di setInterval
+        const intervallo = setInterval(() => {
+            play(5)
+        }, 100);
+
+        document.onkeydown = function (e) {
+            console.log(e.keyCode)
+            e.preventDefault
+        }
+    </script>
+</body>
+</html>

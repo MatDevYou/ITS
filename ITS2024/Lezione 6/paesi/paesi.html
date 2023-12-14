@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Paesi</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Paesi del mondo</h1>
+
+
+    <select class="form-select" id="continenti">
+        <option value="">Scegli</option>
+        <option value="africa">Africa</option>
+        <option value="asia">Asia</option>
+        <option value="europa">Europa</option>
+        <option value="america">America</option>
+        <option value="oceania">Oceania</option>
+    </select>
+
+    <table class="table table-striped"   id="tabella"> 
+        <thead>
+        <tr>
+            <th >Nome</th> 
+            <th>Capitale</th>
+            <th>Bandiera</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+    </tbody>
+</table>
+</div>  
+
+    <script>
+        const URL_BASE = 'https://restcountries.com/v3.1/region/'
+        const TENDINA = document.querySelector('#continenti'); //document.getElementById('continenti')
+        const TBODY = document.querySelector('#tabella > tbody');
+
+        TENDINA.onchange = function  () {
+            const regione = this.value
+
+           const xhr = new XMLHttpRequest()
+
+            console.log(regione.length)
+           if (regione.trim()!='')
+           xhr.onreadystatechange = function (){
+            console.log(xhr.readyState)
+            console.log(xhr.status)
+           
+
+           if (xhr.readyState == 4 && xhr.status == 200){
+            TBODY.innerHTML = ''
+           const paesi = JSON.parse(xhr.responseText)
+
+           for (const paese of paesi) {
+            console.log(paese)
+
+            const TR = document.createElement('tr')
+            const TD1 = document.createElement('td')
+            const TD2 = document.createElement('td')
+            const TD3 = document.createElement('td')
+
+            TD1.textContent = paese.name.official
+            TD2.textContent = paese.capital[0]
+            TD3.textContent = paese.flags.png
+            TR.append(TD1, TD2, TD3)
+            IMG = document.createElement('img')
+            IMG.setAttribute('src', paese.flags.png)
+            TD3.append(IMG)
+            TR.append(TD1, TD2, TD3)
+            TBODY.append(TR)
+           }
+        }
+    }
+
+        xhr.open('get', URL_BASE + regione)
+           xhr.send()
+    
+    }
+      
+    
+    
+
+    
+
+    </script>
+</body>
+</html>

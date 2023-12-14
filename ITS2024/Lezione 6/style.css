@@ -1,0 +1,18 @@
+#playground {
+    width: 95%;
+    height: 100px;
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+img#car {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+img#building {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 500px;
+}
