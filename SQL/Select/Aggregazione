@@ -1,0 +1,24 @@
+/*COUNT contare numero elementi di un insieme*/
+
+/*trovare il numero di fornitori*/
+
+select Count(*) as "Numero dei fornitori"
+from F
+
+/*trovare il numero di fornitori che hanno almeno una fornitura*/
+
+Select count(Distinct CodF)
+From FP
+
+/*Trovare il numnero dei fornitori che forniscono il prodotto P2*/
+
+select count(*)  
+from FP
+where CodP = 2
+
+/*SUM*/
+/*trova la quantita totale di pezzi forniti per il prodotto P2*/
+
+select Sum(Qta) as 'Totale delle quantita'
+from FP
+where CodP = 2
