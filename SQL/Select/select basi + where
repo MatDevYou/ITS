@@ -1,0 +1,40 @@
+/*trovare il codice e il numero di soci dei forntiori di Milano*/
+select CodF, NSoci 
+From F
+where Sede= 'Milano'
+
+/*trovare il  codice di tutti i prodotti*/
+select Codp
+From P
+
+/*Trovare il codice dei prodotti diversi forniti da almeno un fornitore, senza duplicati*/
+select distinct Codp
+from FP
+
+/*trovare tutte le informazioni sul prodotto*/
+select * from P
+
+/*trovare il  codice dei prodotti e la taglia espressa con la misura americana*/
+select CodP, Taglia-14 as "taglia americana"
+from P
+  
+/*trovare il codice dei fornitori di Milano*/
+select CodF
+from F
+where Sede = 'Milano'
+
+/*Trovare il codice e il numero di soci dei fornitori che non hanno sede a Milano*/
+select CodF, NSoci
+From F
+where Sede <> 'Milano'
+
+/*Trovare il codice dei fornitori di Milano con piu di 2 soci*/
+SELECT CodF
+From F
+where NSoci >= 2 and Sede = 'Milano'
+
+/*Trovare il codice e il numero di soci dei fornitori di Milano o Torino*/
+select CodF, NSoci
+from F
+where Sede = 'Milano' or Sede = 'Torino'
+
