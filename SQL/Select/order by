@@ -1,0 +1,13 @@
+/*trovare il codice dei prrodotti e la loro taglia orrdinando il risultato in ordine decresente di taglia*/
+select CodP, Taglia
+from P
+order by Taglia desc
+
+/*trovare tutte le informazioni sui prodotti ordinando il risultato in ordine crescente di nome e decresente di taglia*/
+select * from P
+order by NomeP, Taglia desc
+
+/*trovare il codice dei prodotti e la taglia espressa come taglia amercicana, ordinando il risultato in ordine crescente di taglia*/
+select CodP, Taglia - 14 as 'Taglia Americana'
+from P
+order by [Taglia Americana]
