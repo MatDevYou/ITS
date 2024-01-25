@@ -1,24 +1,29 @@
 /*trovare il nome dei fornitori che fornicono il prodotto P2*/
+
 select distinct NomeF
 from F,FP
 where F.CodF=FP.CodF and CodP = 2
 
 /*Trovare il nome dei forntiori che forniscono almeno un prodotto rosso*/
+
 select distinct NomeF
 from P,F,FP
 where F.CodF =FP.CodF and P.CodP = FP.CodP and colore = 'Rosso'
 
 /*trovare le coppie di codici dei fornitori tali che entrambi i fornitori abbiano sede nella stessa citta*/
+
 select FX.CodF, FY.CodF
 from F as FX, F as FY
 where  FX.Sede = FY.Sede and FX.CodF < FY.CodF
 
 
 /*Trovare il nome dei forntiori che forniscono almeno un prodotto rosso con il join*/
+
 select NomeF
 From P inner join FP on P.CodP = FP.CodP inner join F on F.CodF = FP.CodF
 where P.Colore = 'Rosso'
 
 /*trovare il codice e il nome dei fornitori insieme al codice dei relativi prodotti forniti, visualizzando anche i fornitori che non hanno forniture*/ /*outer join*/
+
 select CodP, NomeF, F.CodF 
 from F left outer join FP on F.CodF = FP.CodF
