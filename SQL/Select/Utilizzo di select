@@ -1,0 +1,7 @@
+/*Trovare il codice e il nome dei prodotti il cui nome inizia con la lettera C*/
+select CodP, NomeP
+From P
+where NomeP Like 'C%'
+
+/*Attributo Indirizzo contiene la stringa Torino*/
+Indirizzo Like '%Torino%'
