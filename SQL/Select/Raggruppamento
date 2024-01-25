@@ -1,0 +1,19 @@
+/*per ogni prodotto, trovare la quantita totale di pezzi forniti*/
+
+select CodP, Sum(Qta) as 'totale per ogni prodotto'
+From FP
+Group by CodP
+
+/*per ogni prodotto, trovare la quantita totale di pezzi forniti* da fornitori con sede a Milano*/
+
+select CodP, Sum(Qta) as 'Totale prodotti con sede a Milano'
+From FP, F
+where Sede = 'Milano' and FP.CodF = F.CodF
+Group by CodP
+
+/*per ogni prodotto , trovare il codice, il nome e la quantita totale fornita*/
+
+select P.CodP, NomeP, Sum(Qta)
+from P, FP
+where P.CodP = FP.CodP
+group by P.CodP, NomeP
