@@ -1,0 +1,9 @@
+/*trovare il codice e il nome dei prodotti poper cui la taglia non e' indicata*/
+select CodP, NomeP 
+from P
+where Taglia is null
+
+/*trovare il codice e il nome dei prodotti con taglia maggiore di 44 o che potrebbero avere taglia maggiore di 44*/
+select CodP, NomeP
+from P
+where Taglia > 44 or Taglia is null
